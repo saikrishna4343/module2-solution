@@ -10,9 +10,9 @@ ToBuyController.$inject = ["ShoppingListCheckOffService"]
 function ToBuyController(ShoppingListCheckOffService){
   let itemsToBuy = this
   itemsToBuy.items = ShoppingListCheckOffService.getItems("itemsToBuyArray")
-  itemsToBuy.addToBought = function(itemName){
+  itemsToBuy.addToBought = function(itemName,quantity,index){
     try{
-      ShoppingListCheckOffService.addItemBought(itemName)
+      ShoppingListCheckOffService.addItemBought(itemName,quantity,index)
       itemsToBuy.errorMessage=""
       ShoppingListCheckOffService.checkEmpty()
     }catch(error){
@@ -52,19 +52,22 @@ function ShoppingListCheckOffService(){
 
   let itemsBought = []
 
-  service.addItemBought = function(itemName,itemQuantity,itemIndex){
+  service.addItemBought = function(itemName,quantity,itemIndex){
     let item ={
       itemName: itemName,
-      quantity: itemQuantity
+      quantity: quantity
     }
 
 
     let indexNumber  = service.search(itemName, itemsBought)
 
+    debugger
 
     if(indexNumber === -1){
       itemsBought.push(item)
+      debugger
       itemsTOBuyArray.splice(itemIndex,1)
+      debugger
 
     }
     else{
