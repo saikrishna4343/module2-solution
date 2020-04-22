@@ -42,7 +42,7 @@ function ShoppingListCheckOffService(){
   itemName: "water",
   quantity: 10
 },{
-  itemName: "Choclate",
+  itemName: "Cookies",
   quantity: 5
 },{
   itemName:"Rice",
@@ -60,14 +60,14 @@ function ShoppingListCheckOffService(){
 
     let indexNumber  = service.search(itemName, itemsBought)
 
-    
+
     if(indexNumber === -1){
       itemsBought.push(item)
       itemsTOBuyArray.splice(itemIndex,1)
 
     }
     else{
-
+      itemsTOBuyArray.splice(itemIndex,1)
       throw new Error("Item Already Bought")
     }
   }
