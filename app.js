@@ -61,13 +61,13 @@ function ShoppingListCheckOffService(){
 
     let indexNumber  = service.search(itemName, itemsBought)
 
-    debugger
+
 
     if(indexNumber === -1){
       itemsBought.push(item)
-      debugger
+    
       itemsTOBuyArray.splice(itemIndex,1)
-      debugger
+
 
     }
     else{
