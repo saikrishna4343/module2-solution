@@ -34,7 +34,7 @@
     <div class="col-md-6">
      <h2>To Buy:</h2>
      <ul>
-       <li ng-repeat="item in itemsToBuy.items">{{item.itemName}}<button class="btn btn-default" ng-click="itemsToBuy.addToBought(item.itemName);"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
+       <li ng-repeat="item in itemsToBuy.items">Buy {{item.quantity}} of {{item.itemName}}<button class="btn btn-default" ng-click="itemsToBuy.addToBought(item.itemName,item.quantity,$index);"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
       <!-- <li ng-model="itemsPresent.itemName">Buy 10 cookies <button class="btn btn-default" ng-click="itemsPresent.addToBought();"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
      </ul> -->
      </ul>
@@ -45,9 +45,9 @@
     <div class="col-md-6" ng-controller="AlreadyBoughtController as itemsBought">
      <h2>Already Bought:</h2>
      <ul>
-       <li ng-repeat="item in itemsBought.items">{{item}}</li>
+       <li ng-repeat="item in itemsBought.items">Bought {{item.quantity}} of {{item.itemName}}</li>
      </ul>
-     <div class="emptyMessage" ng-show="itemsBought.errorMessage">{{itemsBought.errorMessage}}</div>
+     <div class="emptyMessage" ng-if="itemsBought.items.length ==0">Noting bought yet</div>
     </div>
   </div>
 </div>
