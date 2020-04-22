@@ -1,4 +1,5 @@
 (function(){
+'use strict'
 
 angular.module("shoppingListApplication",[])
 .controller('ToBuyController', ToBuyController)
@@ -109,3 +110,4 @@ function ShoppingListCheckOffService(){
 
 
 })();
+// !function(){"use strict";function t(t){let e=this;e.items=t.getItems("itemsToBuyArray"),e.addToBought=function(i){try{t.addItemBought(i),e.errorMessage="",t.checkEmpty()}catch(t){e.errorMessage=t.message}}}function e(t){this.items=t.getItems("itemsBought")}angular.module("shoppingListApplication",[]).controller("ToBuyController",t).controller("AlreadyBoughtController",e).service("ShoppingListCheckOffService",function(){let t=this,e=[{itemName:"Milk",quantity:10},{itemName:"Cookies",quantity:10},{itemName:"water",quantity:10},{itemName:"Cookies",quantity:5},{itemName:"Rice",quantity:20}],i=[];t.addItemBought=function(r,n,o){let s={itemName:r,quantity:n},u=t.search(r,i);if(-1!==u)throw e.splice(o,1),new Error("Item Already Bought");i.push(s),e.splice(o,1)},t.getItems=function(t){if("itemstobuyarray"===t.toLowerCase())return e;if(i.length===e.length)throw new Error("All items bought");return i},t.search=function(t,e){if(0===e.length)return-1;for(let i=0;i<e.length;i++)if(e[i].itemName===t)return i;return-1},t.checkEmpty=function(){if(0===e.length)throw new Error("Everything is Bought!")}}),t.$inject=["ShoppingListCheckOffService"],e.$inject=["ShoppingListCheckOffService"]}();
